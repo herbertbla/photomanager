@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    #Log all Statements
+    #driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    #url: jdbc:log4jdbc:oracle:thin:@//localhost:1521/xe
+
+    #Direct Oracle Connection
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521/xe
+    username: PHOTOMANAGER
+    password: PHOTOMANAGER
+    # T Datenbank Verbindung
+    #url: jdbc:oracle:thin:@//sivvet.brz.gv.at:1521/sivvet.brz
+    #username: IVVCC_T
+    #password: E87MmMmOKXilQdZMsmrs
+
+    #Q-Stage
+    #Wenn ICC lokal gegen die Q-DB connected wird, muss das Flyway abgedreht werden
+    #-> dazu im File 'application-local.properties' die Zeile 'flyway.enabled=true' auskommentieren
+    #wenn Url-Prefix 'log4jdbc' vorhanden, muss der driverClassName einkommentiert werden
+    #url: jdbc:log4jdbc:oracle:thin:@//fivvq.brz.gv.at:1521/fivvq.brz
+    #username: IVVCC_Q
+    #password: g2LQgX0SMPlcOlESQ11D
+
+    #general properties
+    testOnBorrow: true
+    validationQuery: select 1 from dual
+  boot:
+    admin:
+      client:
+        instance:
+          service-url: http://localhost:9010/at.gv.justiz.local.icc/
+
+
+justiz3:
+  server:
+    id: ivvclassicconnect-local
